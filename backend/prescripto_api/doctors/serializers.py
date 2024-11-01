@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Category, Doctor
+from .models import Category, User
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -8,9 +8,9 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'icon']
 
 
-class DoctorSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     category = serializers.StringRelatedField()
     image = serializers.ImageField()
     class Meta: 
-        model = Doctor
-        fields = ['id', 'name', 'category', 'image', 'is_active']
+        model = User
+        fields = ['id', 'name', 'category', 'image','experience','role', 'is_active']

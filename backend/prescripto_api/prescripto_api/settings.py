@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'navbar',
     'doctors',
-    'corsheaders'
+    'corsheaders',
+    'students',
+    'userAuth'
 ]
 
 MIDDLEWARE = [
@@ -65,6 +67,12 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # React app URL
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -82,6 +90,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'prescripto_api.wsgi.application'
+# settings.py
+APPEND_SLASH = False
+
 
 
 # Database
